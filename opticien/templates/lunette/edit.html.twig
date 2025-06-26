@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la lunette{% endblock %}
+
+{% block body %}
+<div class="glass-card">
+    <h1>Modifier la lunette</h1>
+    {{ include('lunette/_form.html.twig') }}
+    <a class="glass-link" href="{{ path('app_lunette_index') }}">← Retour à la liste</a>
+</div>
+{% endblock %}

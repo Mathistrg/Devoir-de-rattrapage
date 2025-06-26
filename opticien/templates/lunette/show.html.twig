@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail lunette{% endblock %}
+
+{% block body %}
+<div class="glass-card">
+    <h1>Détail de la lunette</h1>
+    <ul style="font-size:1.1rem;">
+        <li><b>ID :</b> {{ lunette.id }}</li>
+        <li><b>Série :</b> {{ lunette.serie }}</li>
+        <li><b>Quantité :</b> {{ lunette.quantite }}</li>
+        <li><b>Catégorie :</b> {{ lunette.categorie ? lunette.categorie.nom : '' }}</li>
+    </ul>
+    <a class="glass-link" href="{{ path('app_lunette_index') }}">← Retour à la liste</a>
+    <a class="glass-link-yellow" href="{{ path('app_lunette_edit', {'id': lunette.id}) }}">Modifier</a>
+    {{ include('lunette/_delete_form.html.twig', {'lunette': lunette}) }}
+</div>
+{% endblock %}

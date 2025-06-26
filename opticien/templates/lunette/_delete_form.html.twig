@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_lunette_delete', {'id': lunette.id}) }}" onsubmit="return confirm('Confirmer la suppression ?');" style="display:inline;">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ lunette.id) }}">
+    <button class="glass-link" style="color:#d93030;background:#fff3f3;" type="submit">Supprimer</button>
+</form>

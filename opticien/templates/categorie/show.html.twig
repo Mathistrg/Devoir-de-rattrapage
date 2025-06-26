@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail catégorie{% endblock %}
+
+{% block body %}
+<div class="glass-card">
+    <h1>Détail de la catégorie</h1>
+    <ul style="font-size:1.1rem;">
+        <li><b>ID :</b> {{ categorie.id }}</li>
+        <li><b>Nom :</b> {{ categorie.nom }}</li>
+    </ul>
+    <a class="glass-link" href="{{ path('app_categorie_index') }}">← Retour à la liste</a>
+    <a class="glass-link-yellow" href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">Modifier</a>
+    {{ include('categorie/_delete_form.html.twig') }}
+</div>
+{% endblock %}

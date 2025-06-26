@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégories{% endblock %}
+
+{% block body %}
+<div class="glass-card">
+    <h1>Liste des catégories</h1>
+    <a class="glass-btn-green" href="{{ path('app_categorie_new') }}">+ Ajouter une catégorie</a>
+    <table class="glass-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categorie in categories %}
+                <tr>
+                    <td>{{ categorie.id }}</td>
+                    <td>{{ categorie.nom }}</td>
+                    <td>
+                        <a class="glass-link" href="{{ path('app_categorie_show', {'id': categorie.id}) }}">Voir</a>
+                        <a class="glass-link-yellow" href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3" style="text-align:center;color:#bbb;">Aucune catégorie enregistrée</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

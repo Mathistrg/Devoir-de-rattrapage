@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Opticien Glass{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    <style>
+        body {
+            background: linear-gradient(110deg, #e0e7ef 0%, #f7faff 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+        }
+        .glass-nav {
+            margin: 32px auto 32px auto;
+            max-width: 900px;
+            border-radius: 2rem;
+            box-shadow: 0 6px 24px rgba(10, 40, 100, 0.08), 0 1.5px 10px 0 rgba(10,20,60,0.03);
+            backdrop-filter: blur(15px) saturate(170%);
+            background: rgba(255,255,255,0.60);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1rem 2.2rem;
+            border: 1.2px solid #e4e8ec;
+            position: relative;
+            z-index: 99;
+        }
+        .glass-nav a {
+            color: #262e42;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            padding: 0.45rem 1.1rem;
+            border-radius: 1.2rem;
+            transition: background 0.18s, color 0.18s;
+        }
+        .glass-nav a.active,
+        .glass-nav a:hover {
+            background: rgba(44, 130, 201, 0.08);
+            color: #2996f6;
+        }
+        .glass-nav .right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1.4rem;
+        }
+        .glass-nav .avatar {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(10, 40, 100, 0.05);
+            background: #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #2068d6;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+        @media (max-width: 700px) {
+            .glass-nav { flex-wrap: wrap; padding: 0.8rem 1rem;}
+            .glass-nav .right { flex-basis: 100%; margin-left: 0; justify-content: flex-end;}
+        }
+
+        .glass-card {
+            max-width: 900px;
+            margin: 42px auto 0 auto;
+            background: rgba(255,255,255,0.82);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.11);
+            backdrop-filter: blur(16px) saturate(170%);
+            border: 1.2px solid #e4e8ec;
+            padding: 2.4rem 2.4rem 2.2rem 2.4rem;
+            min-height: 220px;
+        }
+        .glass-card h1 {
+            color: #186cc3;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.6rem;
+            letter-spacing: 0.01em;
+        }
+        .glass-btn-blue, .glass-btn-green {
+            display: inline-block;
+            margin-bottom: 1.6rem;
+            border-radius: 1.1rem;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            padding: 0.65rem 1.5rem;
+            transition: box-shadow 0.2s, background 0.2s;
+            box-shadow: 0 2px 8px #85d8ce23;
+        }
+        .glass-btn-blue {
+            background: #c2eaff;
+            color: #175a86;
+        }
+        .glass-btn-blue:hover {
+            background: #90e0ef;
+        }
+        .glass-btn-green {
+            background: #d5ffd7;
+            color: #185c2c;
+        }
+        .glass-btn-green:hover {
+            background: #a5e4a1;
+        }
+        .glass-table {
+            width: 100%;
+            background: none;
+            border-collapse: separate;
+            border-spacing: 0 0.5rem;
+            font-size: 1.04rem;
+            margin-top: 0.5rem;
+        }
+        .glass-table th {
+            color: #3670bb;
+            font-weight: 600;
+            background: transparent;
+            padding-bottom: 8px;
+        }
+        .glass-table td {
+            background: rgba(240,244,255,0.73);
+            border-radius: 1rem;
+            padding: 0.48rem 1rem;
+            vertical-align: middle;
+        }
+        .glass-link {
+            color: #2996f6;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.2rem 0.7rem;
+            border-radius: 0.7rem;
+            transition: background 0.14s;
+        }
+        .glass-link:hover {
+            background: #e9f4ff;
+        }
+        .glass-link-yellow {
+            color: #b67d00;
+            background: #fffbe8;
+            padding: 0.2rem 0.7rem;
+            border-radius: 0.7rem;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 0.8rem;
+            transition: background 0.14s;
+        }
+        .glass-link-yellow:hover {
+            background: #fff3be;
+        }
+        .glass-form input,
+        .glass-form select {
+            background: rgba(250,250,255,0.9);
+            border: 1px solid #ccd6f6;
+            border-radius: 1.1rem;
+            padding: 0.6rem 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <nav class="glass-nav">
+        <a href="{{ path('app_lunette_index') }}">Lunettes</a>
+        <a href="{{ path('app_categorie_index') }}">Catégories</a>
+        <a href="{{ path('app_login') }}" {% if app.request.attributes.get('_route') == 'app_login' %}class="active"{% endif %}>Connexion</a>
+        <div class="right">
+            {% if app.user %}
+                <span style="color:#26313d; font-size:1.05rem;">
+                    {{ app.user.email }}
+                </span>
+                <div class="avatar" title="Mon profil">
+                    {{ app.user.email[:1]|upper }}
+                </div>
+                <a href="{{ path('app_logout') }}" style="color:#d93030;">Déconnexion</a>
+            {% endif %}
+        </div>
+    </nav>
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+</body>
+</html>

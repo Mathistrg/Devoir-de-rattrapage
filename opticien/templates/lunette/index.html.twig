@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lunettes{% endblock %}
+
+{% block body %}
+<div class="glass-card">
+    <h1>Liste des lunettes</h1>
+    <a class="glass-btn-blue" href="{{ path('app_lunette_new') }}">+ Ajouter une lunette</a>
+    <table class="glass-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Série</th>
+                <th>Quantité</th>
+                <th>Catégorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lunette in lunettes %}
+                <tr>
+                    <td>{{ lunette.id }}</td>
+                    <td>{{ lunette.serie }}</td>
+                    <td>{{ lunette.quantite }}</td>
+                    <td>{{ lunette.categorie ? lunette.categorie.nom : '' }}</td>
+                    <td>
+                        <a class="glass-link" href="{{ path('app_lunette_show', {'id': lunette.id}) }}">Voir</a>
+                        <a class="glass-link-yellow" href="{{ path('app_lunette_edit', {'id': lunette.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5" style="text-align:center;color:#bbb;">Aucune lunette enregistrée</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
