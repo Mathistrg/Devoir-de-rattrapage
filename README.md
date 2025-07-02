@@ -1,16 +1,3 @@
-Bien vu, tu veux un README parfait et **conforme aux remarques du prof**, donc :
-
-* **Plus d’init manuelle de la BDD** (utilise la commande Symfony)
-* **Commande explicite pour fixtures**
-* **Sécurité et expérience utilisateur expliquées**
-* **Flow d’accès clair (login obligatoire, page d’accueil = login si pas connecté, register si aucun user)**
-
----
-
-Voici la version **corrigée et prête à copier-coller** :
-
----
-
 # Backend Symfony Opticien
 
 ## Installation du projet
