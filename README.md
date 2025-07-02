@@ -17,7 +17,7 @@
 4. **Configurer la base de données dans le fichier `.env`** :
 
    ```
-   DATABASE_URL="mysql://root:motdepasse@127.0.0.1:3306/opticien?serverVersion=8.0&charset=utf8mb4"
+   DATABASE_URL="mysql://root:password_dev_opticien@127.0.0.1:3306/opticien?serverVersion=8.0&charset=utf8mb4"
    ```
 
 5. **Créer la base de données** (ne pas le faire à la main, utilisez la commande Symfony) :
