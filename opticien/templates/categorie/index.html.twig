@@ -5,7 +5,9 @@
 {% block body %}
 <div class="glass-card">
     <h1>Liste des catégories</h1>
-    <a class="glass-btn-green" href="{{ path('app_categorie_new') }}">+ Ajouter une catégorie</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="glass-btn-green" href="{{ path('app_categorie_new') }}">+ Ajouter une catégorie</a>
+    {% endif %}
     <table class="glass-table">
         <thead>
             <tr>
@@ -21,7 +23,10 @@
                     <td>{{ categorie.nom }}</td>
                     <td>
                         <a class="glass-link" href="{{ path('app_categorie_show', {'id': categorie.id}) }}">Voir</a>
-                        <a class="glass-link-yellow" href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">Modifier</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="glass-link-yellow" href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">Modifier</a>
+                            {{ include('categorie/_delete_form.html.twig', {'categorie': categorie}) }}
+                        {% endif %}
                     </td>
                 </tr>
             {% else %}

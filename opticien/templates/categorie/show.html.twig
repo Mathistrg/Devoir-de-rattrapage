@@ -10,7 +10,9 @@
         <li><b>Nom :</b> {{ categorie.nom }}</li>
     </ul>
     <a class="glass-link" href="{{ path('app_categorie_index') }}">← Retour à la liste</a>
-    <a class="glass-link-yellow" href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">Modifier</a>
-    {{ include('categorie/_delete_form.html.twig') }}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="glass-link-yellow" href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">Modifier</a>
+        {{ include('categorie/_delete_form.html.twig', {'categorie': categorie}) }}
+    {% endif %}
 </div>
 {% endblock %}

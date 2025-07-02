@@ -12,7 +12,9 @@
         <li><b>Catégorie :</b> {{ lunette.categorie ? lunette.categorie.nom : '' }}</li>
     </ul>
     <a class="glass-link" href="{{ path('app_lunette_index') }}">← Retour à la liste</a>
-    <a class="glass-link-yellow" href="{{ path('app_lunette_edit', {'id': lunette.id}) }}">Modifier</a>
-    {{ include('lunette/_delete_form.html.twig', {'lunette': lunette}) }}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="glass-link-yellow" href="{{ path('app_lunette_edit', {'id': lunette.id}) }}">Modifier</a>
+        {{ include('lunette/_delete_form.html.twig', {'lunette': lunette}) }}
+    {% endif %}
 </div>
 {% endblock %}

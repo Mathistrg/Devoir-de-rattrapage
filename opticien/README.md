@@ -13,7 +13,7 @@
     ```
 4. Créer la base dans MySQL si besoin :
     ```sql
-    CREATE DATABASE opticien CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+    php bin/console doctrine:database:create
     ```
 5. Appliquer les migrations :
     ```
@@ -26,6 +26,12 @@
 7. Lancer le serveur :
     ```
     symfony server:start
+    ```
+
+
+# Pour générer un utilisateur admin via les fixtures :
+    ```sql
+        php bin/console doctrine:fixtures:load
     ```
 
 ## Fonctionnalités

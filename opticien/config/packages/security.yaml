@@ -40,8 +40,18 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/lunettes/new, roles: ROLE_ADMIN }
+        - { path: ^/lunettes/\d+/edit, roles: ROLE_ADMIN }
+        - { path: ^/lunettes/\d+/delete, roles: ROLE_ADMIN }
+        - { path: ^/categories/new, roles: ROLE_ADMIN }
+        - { path: ^/categories/\d+/edit, roles: ROLE_ADMIN }
+        - { path: ^/categories/\d+/delete, roles: ROLE_ADMIN }
+        - { path: ^/lunettes, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/categories, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+
 
 when@test:
     security:
