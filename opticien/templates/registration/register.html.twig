@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<div class="glass-card" style="max-width:430px;margin:42px auto 0 auto;">
+    <h2 style="text-align:center;margin-bottom:2rem;">Créer le premier compte</h2>
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword) }}
+        <button class="glass-btn-green" style="width:100%;margin-top:1.3rem;">S'inscrire</button>
+    {{ form_end(registrationForm) }}
+    <div style="text-align:center;margin-top:1.3rem;">
+        <a href="{{ path('app_login') }}" class="glass-link">Déjà un compte ? Se connecter</a>
+    </div>
+</div>
+{% endblock %}

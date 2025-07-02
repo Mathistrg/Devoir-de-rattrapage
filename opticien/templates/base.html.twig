@@ -168,19 +168,21 @@
     <nav class="glass-nav">
         <a href="{{ path('app_lunette_index') }}">Lunettes</a>
         <a href="{{ path('app_categorie_index') }}">Catégories</a>
-        <a href="{{ path('app_login') }}" {% if app.request.attributes.get('_route') == 'app_login' %}class="active"{% endif %}>Connexion</a>
-        <div class="right">
-            {% if app.user %}
-                <span style="color:#26313d; font-size:1.05rem;">
-                    {{ app.user.email }}
-                </span>
-                <div class="avatar" title="Mon profil">
-                    {{ app.user.email[:1]|upper }}
-                </div>
-                <a href="{{ path('app_logout') }}" style="color:#d93030;">Déconnexion</a>
+        <span style="margin-left:auto"></span>
+        {% if app.user %}
+            <span style="color:#26313d; font-size:1.05rem;">
+                Connecté en tant que <b>{{ app.user.email }}</b>
+            </span>
+            <a href="{{ path('app_logout') }}" style="color:#d93030; margin-left:1.5rem;">Déconnexion</a>
+        {% else %}
+            {# On affiche Connexion seulement si on n'est PAS déjà sur la page home (qui affiche le formulaire) #}
+            {% if app.request.attributes.get('_route') != 'home' %}
+                <a href="{{ path('home') }}">Connexion</a>
             {% endif %}
-        </div>
+            <a href="{{ path('app_register') }}">Inscription</a>
+        {% endif %}
     </nav>
+
     <div class="container">
         {% block body %}{% endblock %}
     </div>
