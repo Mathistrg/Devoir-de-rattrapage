@@ -4,31 +4,35 @@
 
 1. **Cloner le projet**
 
-2. **Installer les dépendances** :
+2. **Entter dans le dossier**
+   ```bash
+   cd opticien
+   ```
+3. **Installer les dépendances** :
 
    ```bash
    composer install
    ```
 
-3. **Configurer la base de données dans le fichier `.env`** :
+4. **Configurer la base de données dans le fichier `.env`** :
 
    ```
    DATABASE_URL="mysql://root:motdepasse@127.0.0.1:3306/opticien?serverVersion=8.0&charset=utf8mb4"
    ```
 
-4. **Créer la base de données** (ne pas le faire à la main, utilisez la commande Symfony) :
+5. **Créer la base de données** (ne pas le faire à la main, utilisez la commande Symfony) :
 
    ```bash
    php bin/console doctrine:database:create
    ```
 
-5. **Appliquer les migrations** :
+6. **Appliquer les migrations** :
 
    ```bash
    php bin/console doctrine:migrations:migrate
    ```
 
-6. **Générer un utilisateur admin de test avec les fixtures** :
+7. **Générer un utilisateur admin de test avec les fixtures** :
 
    ```bash
    php bin/console doctrine:fixtures:load
@@ -42,7 +46,7 @@
    > * Mot de passe : **password123**
    > * Rôle : **ROLE\_ADMIN**
 
-7. **Lancer le serveur Symfony** :
+8. **Lancer le serveur Symfony** :
 
    ```bash
    symfony server:start
