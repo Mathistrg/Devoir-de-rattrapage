@@ -38,14 +38,6 @@
    php bin/console doctrine:fixtures:load
    ```
 
-   *(⚠️ Cette commande écrase les données existantes)*
-
-   > L’admin généré par défaut (voir ci-dessous) :
-   >
-   > * Email : **[admin@admin.fr](mailto:admin@admin.fr)**
-   > * Mot de passe : **password123**
-   > * Rôle : **ROLE\_ADMIN**
-
 8. **Lancer le serveur Symfony** :
 
    ```bash
